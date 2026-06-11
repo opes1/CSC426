@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSC426 Calculator</title>
+
+    <!-- Link to our CSS file -->
+    <link rel="stylesheet" href="csc4261.css" />
+  </head>
+
+  <body>
+
+    <!-- Main calculator box -->
+    <div class="calculator">
+
+      <!-- Title at the top -->
+      <h2 class="title">CSC426 Calculator</h2>
+
+      <!-- Display screen area -->
+      <div class="display">
+        <!-- Shows the expression being typed e.g. 12 + 5 -->
+        <div class="expression" id="expression"></div>
+        <!-- Shows the result or current number -->
+        <div class="result" id="result">0</div>
+      </div>
+
+      <!-- Button grid -->
+      <div class="buttons">
+
+        <!-- Row 1 -->
+        <button class="btn func"  onclick="clearAll()">C</button>
+        <button class="btn func"  onclick="backspace()">←</button>
+        <button class="btn op"    onclick="appendChar('%')">%</button>
+        <button class="btn op"    onclick="appendChar('^')">^</button>
+
+        <!-- Row 2 -->
+        <button class="btn num"   onclick="appendChar('7')">7</button>
+        <button class="btn num"   onclick="appendChar('8')">8</button>
+        <button class="btn num"   onclick="appendChar('9')">9</button>
+        <button class="btn op"    onclick="appendChar('/')">÷</button>
+
+        <!-- Row 3 -->
+        <button class="btn num"   onclick="appendChar('4')">4</button>
+        <button class="btn num"   onclick="appendChar('5')">5</button>
+        <button class="btn num"   onclick="appendChar('6')">6</button>
+        <button class="btn op"    onclick="appendChar('*')">×</button>
+
+        <!-- Row 4 -->
+        <button class="btn num"   onclick="appendChar('1')">1</button>
+        <button class="btn num"   onclick="appendChar('2')">2</button>
+        <button class="btn num"   onclick="appendChar('3')">3</button>
+        <button class="btn op"    onclick="appendChar('-')">−</button>
+
+        <!-- Row 5 -->
+        <button class="btn op"    onclick="appendChar('\\')">\ </button>
+        <button class="btn num"   onclick="appendChar('0')">0</button>
+        <button class="btn num"   onclick="appendChar('.')">.</button>
+        <button class="btn op"    onclick="appendChar('+')">+</button>
+
+        <!-- Row 6 — Equals spans full width -->
+        <button class="btn eq"    onclick="calculate()">=</button>
+
+      </div>
+    </div>
+
+    <!-- Link to our JavaScript file -->
+    <script src="csc4261.js"></script>
+
+  </body>
+</html>
