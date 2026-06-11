@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSC426 Login</title>
+
+    <!-- Link to our CSS file -->
+    <link rel="stylesheet" href="csc4262.css" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <!-- Background wrapper -->
+    <div class="page-wrapper">
+
+      <!-- Login Card -->
+      <div class="login-card">
+
+        <!-- Logo / Icon at top -->
+        <div class="logo">
+          <div class="logo-icon">🎓</div>
+          <h1 class="logo-title">CSC426</h1>
+          <p class="logo-subtitle">Student Portal Login</p>
+        </div>
+
+        <!-- Error message box (hidden by default) -->
+        <div class="message error-msg" id="errorMsg">
+          <span>⚠️</span>
+          <span id="errorText">Invalid username or password.</span>
+        </div>
+
+        <!-- Success message box (hidden by default) -->
+        <div class="message success-msg" id="successMsg">
+          <span>✅</span>
+          <span>Login successful! Redirecting...</span>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form">
+
+          <!-- Username field -->
+          <div class="input-group">
+            <label for="username">Username</label>
+            <div class="input-wrapper">
+              <span class="input-icon">👤</span>
+              <input
+                type="text"
+                id="username"
+                placeholder="Enter your username"
+                autocomplete="username"
+              />
+            </div>
+            <!-- Validation error for username -->
+            <small class="field-error" id="usernameError">Please enter your username.</small>
+          </div>
+
+          <!-- Password field -->
+          <div class="input-group">
+            <label for="password">Password</label>
+            <div class="input-wrapper">
+              <span class="input-icon">🔒</span>
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+              />
+              <!-- Show/Hide password toggle button -->
+              <button class="toggle-password" id="togglePassword" onclick="togglePassword()" type="button">
+                👁️
+              </button>
+            </div>
+            <!-- Validation error for password -->
+            <small class="field-error" id="passwordError">Please enter your password.</small>
+          </div>
+
+          <!-- Remember Me + Forgot Password row -->
+          <div class="extras-row">
+            <label class="remember-me">
+              <input type="checkbox" id="rememberMe" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-link" onclick="forgotPassword()">Forgot password?</a>
+          </div>
+
+          <!-- Buttons row -->
+          <div class="buttons-row">
+            <!-- Reset/Cancel button -->
+            <button class="btn btn-reset" onclick="resetForm()">Reset</button>
+            <!-- Login/Submit button -->
+            <button class="btn btn-login" onclick="login()">Login</button>
+          </div>
+
+        </div>
+        <!-- end form -->
+
+      </div>
+      <!-- end login card -->
+
+    </div>
+    <!-- end page wrapper -->
+
+    <!-- Forgot Password Modal (popup) -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <h3>Forgot Password?</h3>
+        <p>Please contact your system administrator or use the default credentials below:</p>
+        <div class="modal-credentials">
+          <p>👤 Username: <strong>admin</strong></p>
+          <p>🔒 Password: <strong>csc426</strong></p>
+        </div>
+        <button class="btn btn-login" onclick="closeModal()">Got it!</button>
+      </div>
+    </div>
+
+    <!-- Link to JavaScript file -->
+    <script src="csc4262.js"></script>
+
+  </body>
+</html>

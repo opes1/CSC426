@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSC426 Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .dashboard-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 48px 40px;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+
+      .welcome-icon {
+        font-size: 64px;
+        margin-bottom: 16px;
+      }
+
+      .welcome-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 8px;
+      }
+
+      .welcome-title span {
+        color: #667eea;
+      }
+
+      .welcome-subtitle {
+        font-size: 15px;
+        color: #6b7280;
+        margin-bottom: 32px;
+        line-height: 1.6;
+      }
+
+      /* Info cards row */
+      .info-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+
+      .info-card {
+        background: #f3f4f6;
+        border-radius: 12px;
+        padding: 16px 10px;
+      }
+
+      .info-card .icon {
+        font-size: 24px;
+        margin-bottom: 6px;
+      }
+
+      .info-card .label {
+        font-size: 11px;
+        color: #9ca3af;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .info-card .value {
+        font-size: 13px;
+        font-weight: 600;
+        color: #374151;
+        margin-top: 2px;
+      }
+
+      /* Logout button */
+      .btn-logout {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #ffffff;
+        border: none;
+        border-radius: 10px;
+        padding: 13px 40px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.2s;
+      }
+
+      .btn-logout:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .btn-logout:active {
+        transform: scale(0.97);
+      }
+
+      @media (max-width: 480px) {
+        .dashboard-card {
+          padding: 32px 20px;
+        }
+        .info-row {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="dashboard-card">
+
+      <!-- Welcome icon and message -->
+      <div class="welcome-icon">🎉</div>
+      <h1 class="welcome-title">Welcome, <span id="displayName">User</span>!</h1>
+      <p class="welcome-subtitle">
+        You have successfully logged in to the CSC426 Student Portal.
+        Your session is now active.
+      </p>
+
+      <!-- Info cards -->
+      <div class="info-row">
+        <div class="info-card">
+          <div class="icon">🎓</div>
+          <div class="label">Course</div>
+          <div class="value">CSC426</div>
+        </div>
+        <div class="info-card">
+          <div class="icon">🏫</div>
+          <div class="label">School</div>
+          <div class="value">AAUA</div>
+        </div>
+        <div class="info-card">
+          <div class="icon">📅</div>
+          <div class="label">Session</div>
+          <div class="value">2024/2025</div>
+        </div>
+      </div>
+
+      <!-- Logout button -->
+      <button class="btn-logout" onclick="logout()">🚪 Logout</button>
+
+    </div>
+
+    <script>
+      // Show the logged in username on dashboard
+      window.onload = function () {
+        var user = localStorage.getItem("loggedInUser");
+
+        // If no user found, redirect back to login
+        if (!user) {
+          window.location.href = "index.html";
+          return;
+        }
+
+        // Display the username
+        document.getElementById("displayName").textContent = user;
+      };
+
+      // Logout — clear session and go back to login
+      function logout() {
+        localStorage.removeItem("loggedInUser");
+        window.location.href = "index.html";
+      }
+    </script>
+
+  </body>
+</html>
